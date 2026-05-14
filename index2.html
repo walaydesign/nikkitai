@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikki Life | 探索生活中的無限可能</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // 置換為 Blog_style2.html 的配色系統
+                        'rose-pink': '#F8F4F2',       // 原先的粉紅色替換為 jp-purple
+                        'soft-pink': '#E3F2FD',       // 原先的淺粉色替換為 jp-blue
+                        'pale-peach': '#F8FAFC',      // 替換為極淺的石板灰白
+                        'lavender': '#E6DDD7',        // 替換為帶有一點紫調的極淺灰
+                        'misty-blue': '#E3F2FD',      // 替換為 jp-blue
+                        'rose-gold': '#776B64',       // 原先的玫瑰金替換為 jp-accent (主強調色)
+                        'deep-rose': '#523800',       // 替換為深一點的 jp-accent 作為按鈕色
+                        'rice-white': '#FFFFFF',      // 替換為純白
+                        'ultra-light-pink': '#F8F4F2',// 替換為淺石板灰
+                        'deep-brown': '#312C29',      // 原先的深棕色替換為深石板灰 (主要文字色)
+                        'mid-brown': '#AD9B91',       // 原先的中棕色替換為中石板灰 (次要文字色)
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'display': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Noto Sans TC"', 'sans-serif'],
+                        'hand': ['"Great Vibes"', 'cursive'],
+                    },
+                    borderRadius: {
+                        'blob': '60% 40% 70% 30% / 50% 60% 40% 50%',
+                    },
+                    animation: {
+                        'morph': 'morphing 8s ease-in-out infinite',
+                        'float': 'floating 6s ease-in-out infinite',
+                        'float-slow': 'floating 10s ease-in-out infinite',
+                        'float-delayed': 'floating 8s ease-in-out 2s infinite',
+                    },
+                    keyframes: {
+                        morphing: {
+                            '0%, 100%': { borderRadius: '60% 40% 70% 30% / 50% 60% 40% 50%' },
+                            '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+                        },
+                        floating: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            color: #FFFDFA;
+            overflow-x: hidden;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .blob-shape {
+            animation: morphing 8s ease-in-out infinite;
+        }
+        .arc-shadow {
+            box-shadow: 0 10px 30px -10px rgba(119, 107, 100, 0.1);
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .section-arc-top {
+            position: relative;
+            overflow: hidden;
+        }
+        .section-arc-top::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: inherit;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .glass-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .pill-btn {
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pill-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(119, 107, 100, 0.3);
+        }
+        .article-card {
+            border-radius: 30px;
+            transition: all 0.4s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -15px rgba(119, 107, 100, 0.15);
+        }
+        .shorts-container img {
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        .shorts-container div:hover img {
+            transform: scale(1.05) rotate(0deg) !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #FFFFFF;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E3F2FD;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-rose-pink/30">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-hand text-3xl text-rose-gold font-bold">Nikki Life</a>
+            
+            <div class="hidden md:flex space-x-2">
+                <a href="#about" class="pill-btn px-6 py-2 text-rose-gold hover:bg-rose-pink transition-colors">關於我</a>
+                <a href="#articles" class="pill-btn px-6 py-2 text-rose-gold hover:bg-rose-pink transition-colors">精選文章</a>
+                <a href="#works" class="pill-btn px-6 py-2 text-rose-gold hover:bg-rose-pink transition-colors">影音創作</a>
+                <a href="#contact" class="pill-btn px-6 py-2 bg-rose-gold text-white hover:bg-rose-gold transition-colors">聯絡合作</a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-4 arc-shadow pointer-events-none"></div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center pt-32 lg:pt-20 pb-40 overflow-hidden">
+        <div class="absolute right-[-10%] top-[10%] w-[60%] h-[80%] bg-ultra-light-pink rounded-[50%] -z-10 blur-3xl opacity-60"></div>
+        <div class="absolute left-[5%] top-[20%] w-32 h-32 bg-lavender rounded-full opacity-40 animate-float"></div>
+        <div class="absolute right-[15%] bottom-[15%] w-48 h-48 bg-pale-peach rounded-full opacity-30 animate-float-delayed"></div>
+        <div class="absolute left-[40%] top-[10%] w-16 h-16 bg-misty-blue rounded-full opacity-20 animate-float-slow"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal order-2 lg:order-1">
+                <span class="font-hand text-3xl text-rose-gold block mb-4">Welcome to my space</span>
+                <h1 class="font-serif text-5xl md:text-7xl text-deep-brown leading-tight mb-6">
+                    探索生活中的<br><span class="text-deep-rose italic">無限可能</span>
+                </h1>
+                <p class="text-mid-brown text-lg leading-relaxed mb-10 max-w-lg">
+                    在這裡，我們透過鏡頭捕捉瞬間，藉由文字沉澱思考。結合影像創作與深度見解，開啟屬於你的質感生活。
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#works" class="pill-btn bg-deep-rose text-white px-10 py-4 font-medium">觀看影音</a>
+                    <a href="#about" class="pill-btn border-2 border-deep-rose text-deep-rose px-10 py-4 font-medium hover:bg-deep-rose hover:text-white">了解更多</a>
+                </div>
+            </div>
+            
+            <div class="relative reveal order-1 lg:order:2" style="transition-delay: 200ms; z-index: 10;">
+                <div class="w-full aspect-square bg-soft-pink blob-shape overflow-hidden">
+                    <img src="./public/img/kv.png" alt="Hero Image" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute bottom-6 -left-6 w-24 h-24 bg-rose-gold/20 rounded-full blur-xl"></div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-24 bg-rose-pink" style="border-radius: 50% 50% 0 0 / 100% 100% 0 0;"></div>
+    </section>
+
+    <section class="relative pt-0 lg:pt-24 pb-24 bg-rose-pink overflow-visible">
+        
+        <div class="max-w-5xl mx-auto px-6 text-center reveal">
+            <h2 class="font-hand text-4xl text-rose-gold mb-2">Latest Video</h2>
+            <p class="font-serif text-2xl text-deep-brown mb-10">美食探店：炸牛元村 林口店</p>
+            
+            <a href="https://www.youtube.com/shorts/-9DpDe6HN3A" target="_blank" class="relative group cursor-pointer block">
+                <div class="aspect-video rounded-[24px] overflow-hidden shadow-2xl">
+                    <img src="https://i.ytimg.com/vi/-9DpDe6HN3A/maxresdefault.jpg" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center text-deep-rose text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </section>
+
+    <section id="about" class="py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="relative flex justify-center reveal">
+                    <div class="absolute -top-40 left-0 sm:-left-10 font-serif text-[180px] text-rose-pink/40 font-bold -z-10 select-none">01</div>
+                    <div class="relative w-full max-w-md">
+                        <div class="w-full aspect-[4/5] bg-misty-blue blob-shape animate-morph overflow-hidden z-10 relative">
+                            <img src="./public/img/about-1.jpg" alt="Nikki" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-8 -right-12 w-64 aspect-square bg-lavender blob-shape animate-morph overflow-hidden z-10" style="animation-delay: -2s;">
+                            <img src="./public/img/about-2.jpg" alt="Nikki Detail" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <h2 class="font-serif text-4xl text-deep-brown mb-8 relative inline-block">
+                        關於這個網站
+                        <div class="absolute -bottom-2 left-0 w-1/2 h-1 bg-rose-gold/30 rounded-full"></div>
+                    </h2>
+                    <div class="space-y-6 text-mid-brown leading-relaxed text-lg">
+                        <p>嗨，我是 Nikki，一名定居北部的連續創業家與商業導師。<br>
+                            <br>
+我的職業生涯從觀光與幼教領域起步，這段經歷賦予我敏銳的觀察力與專業耐心，讓我能從實戰的品牌主理人，轉身成為創業者們最堅實的「陪跑導師」。<br>
+                            <br>
+我先後創立了日本收納品牌 AirByeBye 並研發藍帶零食系列，擅長運用 Ikigai 框架與商業畫布協助個人品牌精準定位。我目前的使命是陪跑 100 位想創造價值的自雇者，在嚴謹的商業邏輯中，陪你找回創業的初心與律動，並將實戰經驗轉化為可複製的成功模型。<br>
+                            <br>
+工作之外，我是兩個孩子的母親。我推崇「山系教養」，熱衷帶著孩子走入山林，透過攝影記錄成長的溫度。對我而言，創業是為了實現更自由、更有溫度的生活節奏。<br>
+                            <br>
+歡迎來到我的空間，讓我們一起在商業邏輯與生活美學中，找到最適合自己的平衡點。</p>
+                    </div>
+
+                    <div class="mt-12 flex gap-8">
+                        <div class="p-8 border-2 border-rose-gold/20 rounded-[40px_10px_40px_10px] text-center bg-white/50">
+                            <span class="block text-3xl font-serif text-deep-rose font-bold">100+</span>
+                            <span class="text-sm text-mid-brown">原創影片</span>
+                        </div>
+                        <div class="p-8 border-2 border-rose-gold/20 rounded-[10px_40px_10px_40px] text-center bg-white/50">
+                            <span class="block text-3xl font-serif text-deep-rose font-bold">50K+</span>
+                            <span class="text-sm text-mid-brown">社群追蹤</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="articles" class="py-24 bg-ultra-light-pink">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 lg:mb-20 reveal">
+                <h2 class="font-serif text-4xl text-deep-brown mb-4">精選文章</h2>
+                <p class="text-mid-brown">深入淺出的生活提案與技術分享</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="article-card p-6 reveal lg:col-span-2">
+                    <div class="w-full h-64 bg-rose-pink blob-shape overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?w=600&h=400&fit=crop" alt="Article" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-rose-gold font-bold text-sm tracking-widest">CREATIVE</span>
+                    <h3 class="font-serif text-2xl text-deep-brown mt-2 mb-4">如何開始你的第一個 YouTube 頻道？從設備到心態</h3>
+                    <p class="text-mid-brown line-clamp-2">從零開始的創作之路並不容易，我將分享這兩年來累積的實戰經驗，幫助你少走彎路...</p>
+                </div>
+
+                <div class="article-card p-6 reveal">
+                    <div class="w-full h-48 bg-lavender blob-shape overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop" alt="Article" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-rose-gold font-bold text-sm tracking-widest">DESIGN</span>
+                    <h3 class="font-serif text-xl text-deep-brown mt-2 mb-4">日系配色美學：如何在網頁設計中運用淺色調</h3>
+                </div>
+
+                <div class="article-card p-6 reveal">
+                    <div class="w-full h-48 bg-misty-blue blob-shape overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop" alt="Article" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-rose-gold font-bold text-sm tracking-widest">INSPIRATION</span>
+                    <h3 class="font-serif text-xl text-deep-brown mt-2 mb-4">2026 年必看的 5 部創意短片</h3>
+                </div>
+
+                <div class="article-card p-6 reveal">
+                    <div class="w-full h-48 bg-pale-peach blob-shape overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Article" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-rose-gold font-bold text-sm tracking-widest">BUSINESS</span>
+                    <h3 class="font-serif text-xl text-deep-brown mt-2 mb-4">個人品牌經營：從 0 到 1 的實戰經驗</h3>
+                </div>
+
+                <div class="article-card p-6 reveal">
+                    <div class="w-full h-48 bg-soft-pink blob-shape overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop" alt="Article" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-rose-gold font-bold text-sm tracking-widest">TECH</span>
+                    <h3 class="font-serif text-xl text-deep-brown mt-2 mb-4">我的攝影器材清單：輕便與畫質的平衡</h3>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center reveal">
+                <a href="#" class="pill-btn inline-block bg-deep-rose text-white px-12 py-4">查看全部文章</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="py-32 bg-lavender section-arc-top">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal items-center">
+                <div>
+                    <h2 class="font-serif text-4xl text-deep-brown mb-2">影音作品</h2>
+                    <p class="text-mid-brown">用動態影像說故事</p>
+                </div>
+                <a href="https://www.youtube.com/@nikkitai0212/videos" target="_blank" class="text-deep-rose font-bold hover:underline mt-4 md:mt-0 hidden md:block">探索 YouTube 頻道 <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 lg:mb-24">
+                <a href="https://www.youtube.com/watch?v=-Tw4imU6TsA" target="_blank" class="reveal">
+                    <div class="rounded-3xl overflow-hidden shadow-lg mb-4 aspect-video">
+                        <img src="./public/img/video-6.png" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-serif text-lg text-deep-brown px-2">20240627 挪威 Folgefonna glacier centre 冰河健行</h4>
+                </a>
+                <a href="https://www.youtube.com/watch?v=bNpdb7Mh6IY" target="_blank" class="reveal" style="transition-delay: 100ms;">
+                    <div class="rounded-3xl overflow-hidden shadow-lg mb-4 aspect-video">
+                        <img src="./public/img/video-7.png" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-serif text-lg text-deep-brown px-2">2024 挪威 奧斯陸-Holmenkollen Ski Museum 夏季專屬高空滑索體驗</h4>
+                </a>
+                <a href="https://www.youtube.com/watch?v=OxYXumyfa0I" target="_blank" class="reveal" style="transition-delay: 200ms;">
+                    <div class="rounded-3xl overflow-hidden shadow-lg mb-4 aspect-video">
+                        <img src="./public/img/video-8.png" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-serif text-lg text-deep-brown px-2">日本製air bye bye 手捲式真空壓縮袋30秒收納術教學</h4>
+                </a>
+                <a href="https://www.youtube.com/watch?v=sVSJEQU-m60" target="_blank" class="reveal">
+                    <div class="rounded-3xl overflow-hidden shadow-lg mb-4 aspect-video">
+                        <img src="./public/img/video-9.png" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-serif text-lg text-deep-brown px-2">202308我沒跟上的那團:武陵四秀 DAY1,感謝Le&Ko贊助影片播放權</h4>
+                </a>
+                <a href="https://www.youtube.com/watch?v=3A7jh1YvIho" target="_blank" class="reveal" style="transition-delay: 100ms;">
+                    <div class="rounded-3xl overflow-hidden shadow-lg mb-4 aspect-video">
+                        <img src="./public/img/video-10.png" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-serif text-lg text-deep-brown px-2">20230723七股古道、灣潭竹子山（822m)、南勢坑古道、灣潭古道</h4>
+                </a>
+                <a href="https://www.youtube.com/watch?v=i6Ne51buCFQ" target="_blank" class="reveal" style="transition-delay: 200ms;">
+                    <div class="rounded-3xl overflow-hidden shadow-lg mb-4 aspect-video">
+                        <img src="./public/img/video-11.png" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-serif text-lg text-deep-brown px-2">20230716竹子山古道</h4>
+                </a>
+            </div>
+            <a href="#" class="text-deep-rose font-bold hover:underline mt-4 md:mt-0 mb-16 md:mb-0 flex justify-center md:hidden">探索 YouTube 頻道 <i class="fa-solid fa-arrow-right ml-2"></i></a>
+
+            <div class="text-center mb-12 reveal">
+                <h3 class="font-hand text-3xl text-rose-gold">Moments in Shorts</h3>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-12 md:gap-y-6 shorts-container">
+                <a href="https://www.youtube.com/shorts/-9DpDe6HN3A" target="_blank" class="w-32 md:w-44 reveal" style="transform: rotate(-3deg);">
+                    <img src="https://i.ytimg.com/vi/-9DpDe6HN3A/maxresdefault.jpg" class="w-full h-full object-cover aspect-[9/16] shadow-xl">
+                    <p class="text-center mt-3 text-sm font-medium text-deep-brown">美食探店</p>
+                </a>
+                <a href="https://www.youtube.com/shorts/dtG2-1lg48g" target="_blank" class="w-32 md:w-44 reveal" style="transform: rotate(2deg); transition-delay: 100ms;">
+                    <img src="./public/img/video-1.png" class="w-full h-full object-cover aspect-[9/16] shadow-xl">
+                    <p class="text-center mt-3 text-sm font-medium text-deep-brown">台灣之光</p>
+                </a>
+                <a href="https://www.youtube.com/shorts/G00FASKiP_4" target="_blank" class="w-32 md:w-44 reveal" style="transform: rotate(-2deg); transition-delay: 200ms;">
+                    <img src="./public/img/video-2.png" class="w-full h-full object-cover aspect-[9/16] shadow-xl">
+                    <p class="text-center mt-3 text-sm font-medium text-deep-brown">貓咪日常</p>
+                </a>
+                <a href="https://www.youtube.com/shorts/fO_ocX-iCB8" target="_blank" class="w-32 md:w-44 reveal" style="transform: rotate(4deg); transition-delay: 300ms;">
+                    <img src="./public/img/video-3.png" class="w-full h-full object-cover aspect-[9/16] shadow-xl">
+                    <p class="text-center mt-3 text-sm font-medium text-deep-brown">開箱</p>
+                </a>
+                <a href="https://www.youtube.com/shorts/nZTUqVXpssY" target="_blank" class="w-32 md:w-44 reveal" style="transform: rotate(-1deg); transition-delay: 400ms;">
+                    <img src="./public/img/video-4.png" class="w-full h-full object-cover aspect-[9/16] shadow-xl">
+                    <p class="text-center mt-3 text-sm font-medium text-deep-brown">日本</p>
+                </a>
+                <a href="https://www.youtube.com/shorts/eL48GPHvdtk" target="_blank" class="w-32 md:w-44 reveal" style="transform: rotate(3deg); transition-delay: 500ms;">
+                    <img src="./public/img/video-5.png" class="w-full h-full object-cover aspect-[9/16] shadow-xl">
+                    <p class="text-center mt-3 text-sm font-medium text-deep-brown">攝影挑戰</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl text-deep-brown mb-6">與我聯繫</h2>
+                <p class="text-mid-brown max-w-2xl mx-auto leading-relaxed">
+                    無論是品牌合作、媒體邀約，或是想對我的作品提出建議，都歡迎透過以下表單與我聯繫。我通常會在 48 小時內回覆。
+                </p>
+                
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <div class="pill-btn bg-rose-pink px-8 py-3 text-deep-rose font-medium border border-soft-pink">
+                        hello@nikkiLife.com
+                    </div>
+                    <div class="pill-btn bg-lavender px-8 py-3 text-deep-rose font-medium border border-rose-pink">
+                        @nikkiLife_creative
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-white px-6 sm:px-10 py-8 sm:py-10 rounded-[40px] shadow-sm border border-rose-pink/50">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-mid-brown mb-2 ml-4">姓名 Name</label>
+                            <input type="text" class="w-full px-6 py-4 rounded-full border border-rose-pink bg-ultra-light-pink focus:outline-none focus:ring-2 focus:ring-rose-gold/30 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-mid-brown mb-2 ml-4">電子郵件 Email</label>
+                            <input type="email" class="w-full px-6 py-4 rounded-full border border-rose-pink bg-ultra-light-pink focus:outline-none focus:ring-2 focus:ring-rose-gold/30 transition-all">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-mid-brown mb-2 ml-4">主旨 Subject</label>
+                        <input type="text" class="w-full px-6 py-4 rounded-full border border-rose-pink bg-ultra-light-pink focus:outline-none focus:ring-2 focus:ring-rose-gold/30 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-mid-brown mb-2 ml-4">訊息內容 Message</label>
+                        <textarea rows="5" class="w-full px-6 py-4 rounded-[30px] border border-rose-pink bg-ultra-light-pink focus:outline-none focus:ring-2 focus:ring-rose-gold/30 transition-all"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="pill-btn bg-deep-rose text-white px-16 py-4 font-bold text-lg">送出訊息</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-rose-pink relative overflow-hidden">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-white/30 rounded-[50%] blur-3xl -z-0"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="font-serif text-3xl text-deep-brown mb-4">訂閱電子報</h2>
+            <p class="text-mid-brown mb-10 leading-relaxed">
+                不錯過任何一次更新，讓靈感直接送達你的信箱。<br>每週一次，關於創作與生活的精選內容。
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="Your Email Address" class="flex-1 px-8 py-4 pill-btn bg-white border-none focus:ring-2 focus:ring-rose-gold/30 outline-none">
+                <button class="pill-btn bg-deep-rose text-white px-10 py-4 font-bold whitespace-nowrap">立即訂閱</button>
+            </div>
+            <p class="mt-6 text-xs text-mid-brown/60">我們承諾尊重你的隱私，不會發送垃圾郵件。</p>
+        </div>
+    </section>
+
+    <footer class="pt-24 pb-12 relative overflow-hidden">
+        <div class="absolute right-[-5%] bottom-[-10%] w-64 h-64 bg-lavender/30 rounded-full blur-3xl"></div>
+        <div class="absolute left-[-5%] top-[20%] w-48 h-48 bg-soft-pink/20 rounded-full blur-2xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center reveal">
+            <div class="font-hand text-4xl text-rose-gold mb-8">Nikki Life</div>
+            
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="#" class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"><i class="fa-brands fa-youtube text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"><i class="fa-brands fa-threads text-xl"></i></a>
+            </div>
+
+            <div class="border-t border-rose-pink pt-8">
+                <p class="text-mid-brown text-sm">© 2026 Nikki Life. All rights reserved.</p>
+                <p class="text-mid-brown/50 text-xs mt-2 uppercase tracking-widest">Designed by Jerry Lee</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth Scroll for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
