@@ -1,0 +1,106 @@
+body {
+  color: #fffdfa;
+  overflow-x: hidden;
+}
+
+.reveal {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.blob-shape {
+  -webkit-animation: morphing 8s ease-in-out infinite;
+          animation: morphing 8s ease-in-out infinite;
+}
+
+.arc-shadow {
+  -webkit-box-shadow: 0 10px 30px -10px rgba(119, 107, 100, 0.1);
+          box-shadow: 0 10px 30px -10px rgba(119, 107, 100, 0.1);
+  -webkit-clip-path: ellipse(150% 100% at 50% 0%);
+          clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+.section-arc-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-arc-top::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -10%;
+  width: 120%;
+  height: 100px;
+  background: inherit;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.glass-nav {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.pill-btn {
+  border-radius: 50px;
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pill-btn:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 10px 20px -5px rgba(119, 107, 100, 0.3);
+          box-shadow: 0 10px 20px -5px rgba(119, 107, 100, 0.3);
+}
+
+.article-card {
+  border-radius: 30px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.article-card:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: 0 20px 40px -15px rgba(119, 107, 100, 0.15);
+          box-shadow: 0 20px 40px -15px rgba(119, 107, 100, 0.15);
+}
+
+.shorts-container img {
+  border-radius: 20px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.shorts-container div:hover img {
+  -webkit-transform: scale(1.05) rotate(0deg) !important;
+          transform: scale(1.05) rotate(0deg) !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e3f2fd;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=style.css.map */

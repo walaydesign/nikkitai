@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關於我 — Nikki Life</title>
+<link rel="stylesheet" href="blog.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="tw-config.js"></script>
+</head>
+<body class="bg-paper font-sans text-inksoft overflow-x-hidden" data-page="about">
+
+<!-- NAV -->
+<nav class="fixed top-0 inset-x-0 z-50 glass border-b border-taupe/15">
+  <div class="max-w-[1200px] mx-auto px-7 py-4 flex justify-between items-center">
+    <a href="index.html" class="font-script text-3xl text-taupe">Nikki Life</a>
+    <div class="hidden md:flex gap-1 items-center">
+      <a href="about.html" data-nav="about" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">關於我</a>
+      <a href="articles.html" data-nav="articles" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">精選文章</a>
+      <a href="index.html#works" data-nav="works" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">影音創作</a>
+      <a href="index.html#contact" class="text-sm text-white bg-taupe px-6 py-2.5 rounded-full hover:opacity-90 transition">聯絡合作</a>
+    </div>
+    <button id="burger" class="md:hidden text-taupe text-xl" aria-label="選單"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden glass border-t border-taupe/10 px-7 py-3 flex-col gap-1">
+    <a href="about.html" class="block text-sm text-taupe py-2">關於我</a>
+    <a href="articles.html" class="block text-sm text-taupe py-2">精選文章</a>
+    <a href="index.html#works" class="block text-sm text-taupe py-2">影音創作</a>
+    <a href="index.html#contact" class="block text-sm text-taupe py-2">聯絡合作</a>
+  </div>
+</nav>
+
+<!-- PAGE HEAD -->
+<header class="pt-[150px]">
+  <div class="max-w-[1200px] mx-auto px-7">
+    <div class="text-center pb-14 reveal">
+      <div class="font-sans text-[13px] text-inksoft tracking-wide mb-2"><a href="index.html" class="hover:text-taupe">首頁</a><span class="opacity-50 mx-2">/</span>關於我</div>
+      <span class="t-script text-taupe block">About me</span>
+      <h1 class="t-display text-ink">關於<span class="italic text-espresso">我</span></h1>
+      <p class="text-inksoft max-w-[540px] mx-auto mt-4">創業者、母親、創作者——這裡是我的故事，以及那些構成日常的人事物。</p>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO: image + text -->
+<section class="pt-6 pb-28 overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-7">
+    <div class="grid md:grid-cols-[0.85fr_1fr] gap-16 items-center">
+      <div class="reveal flex justify-center">
+        <div class="relative max-w-[420px] w-full">
+          <div class="absolute rounded-full bg-greige/50 float -top-8 -left-8" style="width:150px;height:150px"></div>
+          <div class="absolute rounded-full bg-mist/50 float-delay -bottom-7 -right-6" style="width:110px;height:110px"></div>
+          <div class="blob overflow-hidden aspect-[4/5] bg-mist relative z-[2]"><img src="../../assets/about-1.jpg" alt="Nikki" class="w-full h-full object-cover"></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="t-script text-taupe">Hello, nice to meet you</span>
+        <h2 class="t-h1 text-ink mt-1 mb-6 relative inline-block">嗨，我是 Nikki<span class="absolute -bottom-2 left-0 w-14 h-[3px] bg-taupe/30 rounded"></span></h2>
+        <div class="space-y-4 text-lg leading-[1.9] text-inksoft">
+          <p>一名定居北部的連續創業家與商業導師。我的職業生涯從觀光與幼教領域起步，這段經歷賦予我敏銳的觀察力與專業的耐心，讓我能從實戰的品牌主理人，轉身成為創業者們最堅實的夥伴。</p>
+          <p>工作之外，我是兩個孩子的母親，也是一名熱愛用鏡頭記錄生活的創作者。咖啡、旅行、山林與美食，是我靈感的來源；而把這些日常分享出去，是我最喜歡做的事。</p>
+        </div>
+        <div class="font-script text-[38px] text-taupe mt-4">Nikki Tai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES: icon + character -->
+<section class="py-24 bg-cream">
+  <div class="max-w-[1200px] mx-auto px-7">
+    <div class="text-center mb-12 reveal">
+      <span class="t-script text-taupe">What I do</span>
+      <h2 class="t-h1 text-ink mt-1 mb-3">我的幾個身份</h2>
+      <p class="text-inksoft">創業、研發、陪跑與生活，這些角色共同構成了現在的我。</p>
+    </div>
+    <div id="roles" class="grid sm:grid-cols-2 gap-6 max-w-[920px] mx-auto"></div>
+  </div>
+</section>
+
+<!-- BRAND MARQUEE -->
+<section class="py-24 text-center overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-7">
+    <div class="mb-12 reveal">
+      <span class="t-script text-taupe">Trusted by</span>
+      <h2 class="t-h1 text-ink mt-1 mb-3">合作品牌</h2>
+      <p class="text-inksoft">很榮幸與這些品牌一起，把好的想法帶給更多人。</p>
+    </div>
+  </div>
+  <div class="marquee reveal">
+    <div id="marquee-track" class="marquee-track"></div>
+  </div>
+</section>
+
+<!-- MASONRY GALLERY -->
+<section class="py-24 bg-greige">
+  <div class="max-w-[1200px] mx-auto px-7">
+    <div class="text-center mb-14 reveal">
+      <span class="t-script text-taupe">Moments</span>
+      <h2 class="t-h1 text-ink mt-1 mb-3">生活的切片</h2>
+      <p class="text-inksoft">咖啡、旅行、餐桌與貓——那些讓我覺得「活著真好」的瞬間。</p>
+    </div>
+    <div id="gallery" class="columns-2 md:columns-3 lg:columns-4 gap-5 max-w-[1120px] mx-auto"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="py-24 bg-cream relative overflow-hidden text-center">
+  <div class="max-w-[1200px] mx-auto px-7 relative reveal">
+    <h2 class="t-h2 text-ink mb-4">訂閱電子報</h2>
+    <p class="text-inksoft max-w-[420px] mx-auto mb-10">不錯過任何一次更新，讓靈感直接送達你的信箱。每週一次，關於創作與生活的精選內容。</p>
+    <form data-fake data-ok="已訂閱，請查收你的信箱 ✓" class="flex gap-4 max-w-[480px] mx-auto flex-col sm:flex-row">
+      <input type="email" required placeholder="Your Email Address" class="flex-1 px-7 py-4 rounded-full bg-white outline-none focus:ring-2 focus:ring-taupe/30">
+      <button class="px-9 py-4 rounded-full bg-espresso text-white font-bold whitespace-nowrap hover:scale-105 hover:shadow-cta transition">立即訂閱</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-24 pb-12 text-center">
+  <div class="max-w-[1200px] mx-auto px-7">
+    <div class="font-script text-4xl text-taupe mb-8">Nikki Life</div>
+    <div class="flex justify-center gap-8 mb-12">
+      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-threads"></i></a>
+    </div>
+    <div class="border-t border-cream pt-8">
+      <p class="text-sm text-inksoft">© 2026 Nikki Life. All rights reserved.</p>
+      <p class="text-[11px] text-inksoft/60 mt-2 uppercase tracking-[0.18em]">Designed by Jerry Lee</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

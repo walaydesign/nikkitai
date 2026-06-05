@@ -1,0 +1,64 @@
+/* ============================================================
+   Nikki Life — custom styles for the pure-HTML + Tailwind blog.
+   Only what Tailwind utilities can't express: brand fonts,
+   organic blob, marquee, floating orbs, scroll-reveal, prose.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Great+Vibes&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+html { scroll-behavior: smooth; }
+body { font-weight: 300; -webkit-font-smoothing: antialiased; }
+
+/* fluid type helpers (keep Tailwind markup tidy) */
+.t-script  { font-family: 'Great Vibes', cursive; font-size: clamp(2rem, 3.4vw, 2.75rem); line-height: 1.2; }
+.t-display { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.75rem, 6vw, 4.5rem); line-height: 1.1; font-weight: 400; }
+.t-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.25rem, 4vw, 3rem); line-height: 1.2; font-weight: 400; }
+.t-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.2; font-weight: 400; }
+
+/* organic morphing blob photo mask */
+.blob { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; animation: morph 8s ease-in-out infinite; }
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+  50%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+.r-asym-l { border-radius: 40px 10px 40px 10px; }
+.r-asym-r { border-radius: 10px 40px 10px 40px; }
+
+/* floating ambient orbs */
+@keyframes floating { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.float       { animation: floating 6s ease-in-out infinite; }
+.float-slow  { animation: floating 10s ease-in-out infinite; }
+.float-delay { animation: floating 8s ease-in-out 2s infinite; }
+
+/* scroll reveal (capture/print safe: hidden state only added by JS below the fold) */
+.reveal { transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1); }
+.reveal.pending { opacity: 0; transform: translateY(30px); }
+@media (prefers-reduced-motion: reduce) { .reveal.pending { opacity: 1; transform: none; } }
+
+/* glass nav */
+.glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); background: rgba(255,255,255,.8); }
+
+/* hero arc divider */
+.arc-top { border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+
+/* brand logo marquee */
+.marquee { overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* article prose */
+.prose p { font-size: 17px; line-height: 1.95; color: #5c534d; margin: 0 0 22px; }
+.prose .lead { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1.7; color: #312C29; margin: 0 0 36px; }
+.prose h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #312C29; font-weight: 500; margin: 44px 0 18px; }
+.prose blockquote { margin: 36px 0; padding: 8px 0 8px 32px; border-left: 3px solid rgba(119,107,100,.4);
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px; line-height: 1.5; color: #523800; }
+
+/* lightbox */
+.lightbox { opacity: 0; pointer-events: none; transition: opacity .35s cubic-bezier(.4,0,.2,1); }
+.lightbox.open { opacity: 1; pointer-events: auto; }
+.lightbox .box { transform: scale(.94); transition: transform .35s cubic-bezier(.4,0,.2,1); }
+.lightbox.open .box { transform: scale(1); }
