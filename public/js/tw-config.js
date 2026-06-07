@@ -4,7 +4,7 @@ tailwind.config = {
     extend: {
       colors: {
         ink: "#312C29",
-        inksoft: "#AD9B91",
+        inksoft: "#806c60",
         taupe: "#776B64",
         espresso: "#523800",
         cream: "#F8F4F2",

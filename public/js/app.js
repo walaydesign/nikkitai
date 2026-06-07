@@ -25,6 +25,15 @@
     });
   });
 
+
+  // header
+  document
+    .querySelector(".header-menu")
+    ?.addEventListener("click", function () {
+      this.classList.toggle("active");
+      document.querySelector(".header-nav__list")?.classList.toggle("active");
+    });
+
   var BLOG = window.BLOG,
     SITE = window.SITE;
   var $ = function (s, r) {
@@ -273,52 +282,52 @@
         .join("");
     bindLight();
   }
-  function renderAbout() {
-    var r = $("#roles");
-    if (r)
-      r.innerHTML = SITE.roles
-        .map(function (x) {
-          return (
-            '<div class="reveal flex gap-5 items-start bg-white border border-taupe/15 rounded-[30px] px-8 py-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card">' +
-            '<div class="flex-none w-16 h-16 rounded-full bg-cream grid place-items-center text-taupe text-[26px]"><i class="fa-solid ' +
-            x.ic +
-            '"></i></div>' +
-            '<div><h3 class="font-serif text-[22px] text-ink font-medium mt-1 mb-2">' +
-            x.title +
-            "</h3>" +
-            '<p class="text-sm text-inksoft leading-relaxed">' +
-            x.desc +
-            "</p></div></div>"
-          );
-        })
-        .join("");
-    var g = $("#gallery");
-    if (g)
-      g.innerHTML = SITE.gallery
-        .map(function (x) {
-          return (
-            '<div class="reveal mb-5 break-inside-avoid rounded-3xl overflow-hidden shadow-soft relative group cursor-pointer js-light" data-img="' +
-            x.img +
-            '" data-cat="' +
-            x.tag +
-            '" data-ttl="' +
-            x.ttl +
-            '">' +
-            '<img src="' +
-            x.img +
-            '" alt="" class="w-full block transition-transform duration-700 group-hover:scale-105">' +
-            '<div class="absolute inset-x-0 bottom-0 pt-7 pb-3.5 px-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" style="background:linear-gradient(transparent,rgba(49,44,41,.6))">' +
-            '<div class="font-sans text-[11px] tracking-[0.15em] opacity-85">' +
-            x.tag +
-            "</div>" +
-            '<div class="font-serif text-[17px] mt-0.5">' +
-            x.ttl +
-            "</div></div></div>"
-          );
-        })
-        .join("");
-    bindLight();
-  }
+  // function renderAbout() {
+  //   var r = $("#roles");
+  //   if (r)
+  //     r.innerHTML = SITE.roles
+  //       .map(function (x) {
+  //         return (
+  //           '<div class="reveal flex gap-5 items-start bg-white border border-taupe/15 rounded-[30px] px-8 py-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card">' +
+  //           '<div class="flex-none w-16 h-16 rounded-full bg-cream grid place-items-center text-taupe text-[26px]"><i class="fa-solid ' +
+  //           x.ic +
+  //           '"></i></div>' +
+  //           '<div><h3 class="font-serif text-[22px] text-ink font-medium mt-1 mb-2">' +
+  //           x.title +
+  //           "</h3>" +
+  //           '<p class="text-sm text-inksoft leading-relaxed">' +
+  //           x.desc +
+  //           "</p></div></div>"
+  //         );
+  //       })
+  //       .join("");
+  //   var g = $("#gallery");
+  //   if (g)
+  //     g.innerHTML = SITE.gallery
+  //       .map(function (x) {
+  //         return (
+  //           '<div class="reveal mb-5 break-inside-avoid rounded-3xl overflow-hidden shadow-soft relative group cursor-pointer js-light" data-img="' +
+  //           x.img +
+  //           '" data-cat="' +
+  //           x.tag +
+  //           '" data-ttl="' +
+  //           x.ttl +
+  //           '">' +
+  //           '<img src="' +
+  //           x.img +
+  //           '" alt="" class="w-full block transition-transform duration-700 group-hover:scale-105">' +
+  //           '<div class="absolute inset-x-0 bottom-0 pt-7 pb-3.5 px-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" style="background:linear-gradient(transparent,rgba(49,44,41,.6))">' +
+  //           '<div class="font-sans text-[11px] tracking-[0.15em] opacity-85">' +
+  //           x.tag +
+  //           "</div>" +
+  //           '<div class="font-serif text-[17px] mt-0.5">' +
+  //           x.ttl +
+  //           "</div></div></div>"
+  //         );
+  //       })
+  //       .join("");
+  //   bindLight();
+  // }
   function fillSidebar() {
     var sf = $("#side-featured");
     if (sf) sf.innerHTML = BLOG.articles.slice(0, 5).map(featHTML).join("");

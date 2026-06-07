@@ -15,10 +15,10 @@
     />
     <link rel="stylesheet" href="./public/css/style.css" />
 
-    <script src="tw-config.js"></script>
+    <script src="./public/js/tw-config.js"></script>
   </head>
   <body class="custom-scrollbar">
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-cream/30">
+    <header class="fixed top-0 w-full z-50 glass-nav border-b border-cream/30">
       <div
         class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
       >
@@ -26,7 +26,7 @@
           >Nikki Life</a
         >
 
-        <div class="hidden md:flex space-x-2">
+        <nav class="block md:flex space-x-2 header-nav__list">
           <a
             href="#about"
             class="pill-btn px-6 py-2 text-taupe hover:bg-cream transition-colors"
@@ -47,12 +47,14 @@
             class="pill-btn px-6 py-2 bg-taupe text-white hover:bg-taupe transition-colors"
             >聯絡合作</a
           >
-        </div>
+        </nav>
+        <button class="header-menu block md:hidden">
+        <div class="bar bar-top"></div>
+        <div class="bar bar-middle"></div>
+        <div class="bar bar-bottom"></div>
+      </button>
       </div>
-      <div
-        class="absolute bottom-0 left-0 w-full h-4 arc-shadow pointer-events-none"
-      ></div>
-    </nav>
+    </header>
 
     <section
       class="relative min-h-screen flex items-center pt-32 lg:pt-20 pb-40 overflow-hidden"
@@ -116,12 +118,12 @@
         </div>
       </div>
       <div
-        class="absolute bottom-0 left-0 w-full h-24 bg-cream"
+        class="absolute bottom-0 left-0 w-full lg:h-16 h-12 bg-cream"
         style="border-radius: 50% 50% 0 0 / 100% 100% 0 0"
       ></div>
     </section>
 
-    <section class="relative pt-0 lg:pt-24 pb-24 bg-cream overflow-visible">
+    <section class="relative pt-0 pb-28 lg:pt-24 lg:pb-48 bg-cream overflow-visible">
       <div class="max-w-5xl mx-auto px-6 text-center reveal">
         <h2 class="font-script text-4xl text-taupe mb-2">Latest Video</h2>
         <p class="font-serif text-2xl text-ink mb-10">
@@ -151,9 +153,13 @@
           </div>
         </a>
       </div>
+      <div
+        class="absolute bottom-0 left-0 w-full lg:h-16 h-12 bg-white"
+        style="border-radius: 50% 50% 0 0 / 100% 100% 0 0"
+      ></div>
     </section>
 
-    <section id="about" class="py-32 overflow-hidden">
+    <section id="about" class="py-24 lg:py-32 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-20">
           <div class="relative flex justify-center reveal">
@@ -167,17 +173,17 @@
                 class="w-full aspect-[4/5] bg-mist blob-shape animate-morph overflow-hidden z-10 relative"
               >
                 <img
-                  src="./public/img/about-1.jpg"
+                  src="./public/img/about-2.jpg"
                   alt="Nikki"
                   class="w-full h-full object-cover"
                 />
               </div>
               <div
-                class="absolute bottom-8 -right-12 w-64 aspect-square bg-greige blob-shape animate-morph overflow-hidden z-10"
+                class="absolute -bottom-8 lg:bottom-8 right-0 lg:-right-12 w-40 lg:w-64 aspect-square bg-greige blob-shape animate-morph overflow-hidden z-10"
                 style="animation-delay: -2s"
               >
                 <img
-                  src="./public/img/about-2.jpg"
+                  src="./public/img/about-1.jpg"
                   alt="Nikki Detail"
                   class="w-full h-full object-cover"
                 />
@@ -192,7 +198,7 @@
                 class="absolute -bottom-2 left-0 w-1/2 h-1 bg-taupe/30 rounded-full"
               ></div>
             </h2>
-            <div class="space-y-6 text-inksoft leading-relaxed text-lg">
+            <div class="space-y-6 text-inksoft leading-relaxed text-base">
               <p>
                 嗨，我是 Nikki，一名定居北部的連續創業家與商業導師。<br />
                 <br />
@@ -208,25 +214,29 @@
                 歡迎來到我的空間，讓我們一起在商業邏輯與生活美學中，找到最適合自己的平衡點。
               </p>
             </div>
-
-            <div class="mt-12 flex gap-8">
+            <div class="mt-6 flex gap-4 lg:gap-8">
               <div
                 class="p-8 border-2 border-taupe/20 rounded-[40px_10px_40px_10px] text-center bg-white/50"
               >
-                <span class="block text-3xl font-serif text-espresso font-bold"
+                <span class="block text-5xl font-serif text-espresso font-bold mb-1"
                   >100+</span
                 >
-                <span class="text-sm text-inksoft">原創影片</span>
+                <span class="text-xs text-inksoft">原創影片</span>
               </div>
               <div
                 class="p-8 border-2 border-taupe/20 rounded-[10px_40px_10px_40px] text-center bg-white/50"
               >
-                <span class="block text-3xl font-serif text-espresso font-bold"
+                <span class="block text-5xl font-serif text-espresso font-bold mb-1"
                   >50K+</span
                 >
-                <span class="text-sm text-inksoft">社群追蹤</span>
+                <span class="text-xs text-inksoft">社群追蹤</span>
               </div>
             </div>
+            <a
+            href="#"
+            class="pill-btn mt-6 inline-block bg-espresso text-white px-12 py-4"
+            >查看更多</a
+          >
           </div>
         </div>
       </div>
@@ -239,61 +249,61 @@
           <p class="text-inksoft">深入淺出的生活提案與技術分享</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="article-card p-6 reveal lg:col-span-2">
-            <div class="w-full h-64 bg-cream blob-shape overflow-hidden mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
+          <a href="" class="article-card p-0 lg:p-6 lg:-mt-8 reveal lg:col-span-2">
+            <div class="w-full h-64 bg-cream blob-shape overflow-hidden mb-1">
               <img
                 src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?w=600&h=400&fit=crop"
                 alt="Article"
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-sm tracking-widest"
+            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >CREATIVE</span
             >
-            <h3 class="font-serif text-2xl text-ink mt-2 mb-4">
+            <h3 class="font-serif text-2xl text-ink my-2">
               如何開始你的第一個 YouTube 頻道？從設備到心態
             </h3>
             <p class="text-inksoft line-clamp-2">
               從零開始的創作之路並不容易，我將分享這兩年來累積的實戰經驗，幫助你少走彎路...
             </p>
-          </div>
+          </a>
 
-          <div class="article-card p-6 reveal">
-            <div class="w-full h-48 bg-greige blob-shape overflow-hidden mb-6">
+          <a href="" class="article-card p-0 lg:p-6 reveal">
+            <div class="w-full h-48 bg-greige blob-shape overflow-hidden mb-1 lg:mb-7">
               <img
                 src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop"
                 alt="Article"
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-sm tracking-widest"
+            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >DESIGN</span
             >
-            <h3 class="font-serif text-xl text-ink mt-2 mb-4">
+            <h3 class="font-serif text-2xl text-ink my-2">
               日系配色美學：如何在網頁設計中運用淺色調
             </h3>
-          </div>
+          </a>
 
-          <div class="article-card p-6 reveal">
-            <div class="w-full h-48 bg-mist blob-shape overflow-hidden mb-6">
+          <a href="" class="article-card p-0 lg:p-6 reveal">
+            <div class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7">
               <img
                 src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop"
                 alt="Article"
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-sm tracking-widest"
+            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >INSPIRATION</span
             >
-            <h3 class="font-serif text-xl text-ink mt-2 mb-4">
+            <h3 class="font-serif text-2xl text-ink my-2">
               2026 年必看的 5 部創意短片
             </h3>
-          </div>
+          </a>
 
-          <div class="article-card p-6 reveal">
+          <a href="" class="article-card p-0 lg:p-6 reveal">
             <div
-              class="w-full h-48 bg-porcelain blob-shape overflow-hidden mb-6"
+              class="w-full h-48 bg-porcelain blob-shape overflow-hidden mb-1 lg:mb-7"
             >
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
@@ -301,29 +311,32 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-sm tracking-widest"
+
+            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >BUSINESS</span
             >
-            <h3 class="font-serif text-xl text-ink mt-2 mb-4">
+            <h3 class="font-serif text-2xl text-ink my-2">
               個人品牌經營：從 0 到 1 的實戰經驗
             </h3>
-          </div>
+          </a>
 
-          <div class="article-card p-6 reveal">
-            <div class="w-full h-48 bg-mist blob-shape overflow-hidden mb-6">
+          <a href="" class="article-card p-0 lg:p-6 reveal">
+            <div class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7">
               <img
                 src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop"
                 alt="Article"
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-sm tracking-widest"
+
+
+            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >TECH</span
             >
-            <h3 class="font-serif text-xl text-ink mt-2 mb-4">
+            <h3 class="font-serif text-2xl text-ink my-2">
               我的攝影器材清單：輕便與畫質的平衡
             </h3>
-          </div>
+          </a>
         </div>
 
         <div class="mt-16 text-center reveal">
@@ -704,8 +717,8 @@
       </div>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script src="./public/js/data.js"></script>
+    <script src="./public/js/app.js"></script>
 
   </body>
 </html>
