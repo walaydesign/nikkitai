@@ -1,127 +1,536 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>搜尋結果 — Nikki Life</title>
-<link rel="stylesheet" href="blog.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="tw-config.js"></script>
-</head>
-<body class="bg-paper font-sans text-inksoft overflow-x-hidden" data-page="search">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikki Life | 探索生活中的無限可能</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./public/css/style.css" />
 
-<!-- NAV -->
-<nav class="fixed top-0 inset-x-0 z-50 glass border-b border-taupe/15">
-  <div class="max-w-[1200px] mx-auto px-7 py-4 flex justify-between items-center">
-    <a href="index.html" class="font-script text-3xl text-taupe">Nikki Life</a>
-    <div class="hidden md:flex gap-1 items-center">
-      <a href="about.html" data-nav="about" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">關於我</a>
-      <a href="articles.html" data-nav="articles" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">精選文章</a>
-      <a href="index.html#works" data-nav="works" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">影音創作</a>
-      <a href="index.html#contact" class="text-sm text-white bg-taupe px-6 py-2.5 rounded-full hover:opacity-90 transition">聯絡合作</a>
-    </div>
-    <button id="burger" class="md:hidden text-taupe text-xl" aria-label="選單"><i class="fa-solid fa-bars"></i></button>
-  </div>
-  <div id="mobile-menu" class="hidden md:hidden glass border-t border-taupe/10 px-7 py-3 flex-col gap-1">
-    <a href="about.html" class="block text-sm text-taupe py-2">關於我</a>
-    <a href="articles.html" class="block text-sm text-taupe py-2">精選文章</a>
-    <a href="index.html#works" class="block text-sm text-taupe py-2">影音創作</a>
-    <a href="index.html#contact" class="block text-sm text-taupe py-2">聯絡合作</a>
-  </div>
-</nav>
+    <script src="./public/js/tw-config.js"></script>
+  </head>
+  <body
+    class="bg-paper font-sans text-inksoft overflow-x-hidden"
+    data-page="search"
+  >
+    <div id="header"></div>
 
-<!-- PAGE HEAD -->
-<header class="pt-[150px]">
-  <div class="max-w-[1200px] mx-auto px-7">
-    <div class="text-center pb-14 reveal">
-      <div class="font-sans text-[13px] text-inksoft tracking-wide mb-2"><a href="index.html" class="hover:text-taupe">首頁</a><span class="opacity-50 mx-2">/</span><a href="articles.html" class="hover:text-taupe">精選文章</a><span class="opacity-50 mx-2">/</span>搜尋</div>
-      <span class="t-script text-taupe block">Search results</span>
-      <h1 class="t-display text-ink">搜尋：<span id="result-q" class="italic text-espresso"></span></h1>
-      <div id="result-count" class="text-inksoft mt-4"></div>
-    </div>
-  </div>
-</header>
+    <main class="pt-[72px]">
+      <!-- PAGE HEAD -->
+      <div class="relative page-head">
+        <img
+          src="./public/img/articles-hero.png"
+          alt=""
+          class="page-head__img absolute w-full h-full top-0 left-0 hidden lg:block"
+        />
+        <img
+          src="./public/img/articles-hero-m.png"
+          alt=""
+          class="page-head__img absolute w-full h-full top-0 left-0 block lg:hidden"
+        />
+        <div class="page-head__text w-full absolute left-0 top-[50%]">
+          <div class="max-w-[1200px] mx-auto px-7">
+            <div class="lg:pb-14 reveal">
+              <div
+                class="font-sans text-[13px] text-inksoft tracking-wide mb-2"
+              >
+                <a href="index.html" class="hover:text-taupe">首頁</a
+                ><span class="opacity-50 mx-2">/</span>精選文章
+              </div>
+              <span class="t-script text-taupe block opacity-40"
+                >Search results</span
+              >
+              <h1 class="t-display text-ink">
+                搜尋：<span class="italic text-espresso">我是關鍵字</span>
+              </h1>
+              <p
+                class="text-inksoft max-w-[540px] mt-4 w-[60%] lg:w-full text-sm lg:text-base"
+              >
+                關於創作、設計、商業與生活的觀察筆記，每週更新。
+              </p>
+            </div>
+          </div>
+        </div>
+        <img
+          class="absolute w-full bottom-0 left-0"
+          src="./public/img/hero-mask-desktop.svg"
+          alt=""
+        />
+      </div>
 
-<!-- LIST + SIDEBAR -->
-<div class="pb-28">
-  <div class="max-w-[1200px] mx-auto px-7">
-    <div class="grid lg:grid-cols-[3fr_1fr] gap-14 items-start">
-      <main>
-        <div id="card-grid" class="grid sm:grid-cols-2 gap-x-7 gap-y-9"></div>
-      </main>
+      <!-- LIST + SIDEBAR -->
+      <div class="py-28">
+        <div class="max-w-[1200px] mx-auto px-7">
+          <div class="grid lg:grid-cols-[3fr_1fr] gap-14 items-start">
+            <div>
+              <div id="card-grid" class="grid sm:grid-cols-2 gap-x-7 gap-y-9">
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-greige blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >DESIGN</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    日系配色美學：如何在網頁設計中運用淺色調
+                  </h3>
+                </a>
 
-      <!-- SIDEBAR -->
-      <aside class="lg:sticky lg:top-[110px] flex flex-col gap-10">
-        <div class="reveal">
-          <h4 class="font-serif text-xl text-ink font-medium mb-5 pb-3.5 border-b border-taupe/15">搜尋</h4>
-          <form data-search class="relative">
-            <input id="side-search-input" type="text" placeholder="搜尋文章…" class="w-full pl-5 pr-12 py-3 rounded-full border border-taupe/15 bg-paper text-ink text-sm outline-none focus:ring-2 focus:ring-taupe/30">
-            <button type="submit" aria-label="搜尋" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-espresso text-white grid place-items-center hover:scale-105 transition"><i class="fa-solid fa-magnifying-glass text-[13px]"></i></button>
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >INSPIRATION</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    2026 年必看的 5 部創意短片
+                  </h3>
+                </a>
+
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-porcelain blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >BUSINESS</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    個人品牌經營：從 0 到 1 的實戰經驗
+                  </h3>
+                </a>
+
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >TECH</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    我的攝影器材清單：輕便與畫質的平衡
+                  </h3>
+                </a>
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-greige blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >DESIGN</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    日系配色美學：如何在網頁設計中運用淺色調
+                  </h3>
+                </a>
+
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >INSPIRATION</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    2026 年必看的 5 部創意短片
+                  </h3>
+                </a>
+
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-porcelain blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >BUSINESS</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    個人品牌經營：從 0 到 1 的實戰經驗
+                  </h3>
+                </a>
+
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >TECH</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    我的攝影器材清單：輕便與畫質的平衡
+                  </h3>
+                </a>
+              </div>
+              <div class="flex justify-center gap-2 mt-16 reveal">
+                <a
+                  href="articles.html"
+                  class="w-11 h-11 rounded-full grid place-items-center text-sm bg-espresso text-white"
+                  >1</a
+                >
+                <a
+                  href="articles.html"
+                  class="w-11 h-11 rounded-full grid place-items-center text-sm text-taupe border border-taupe/15 hover:bg-espresso hover:text-white hover:border-espresso transition"
+                  >2</a
+                >
+                <a
+                  href="articles.html"
+                  class="w-11 h-11 rounded-full grid place-items-center text-sm text-taupe border border-taupe/15 hover:bg-espresso hover:text-white hover:border-espresso transition"
+                  >3</a
+                >
+                <a
+                  href="articles.html"
+                  class="w-11 h-11 rounded-full grid place-items-center text-sm text-taupe border border-taupe/15 hover:bg-espresso hover:text-white hover:border-espresso transition"
+                  ><i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class="lg:sticky lg:top-[110px] flex flex-col gap-10">
+              <div class="reveal">
+                <form data-search class="relative">
+                  <input
+                    id="side-search-input"
+                    type="text"
+                    placeholder="搜尋文章…"
+                    class="w-full pl-5 pr-12 py-3 rounded-full border border-taupe/15 bg-paper text-ink text-sm outline-none focus:ring-2 focus:ring-taupe/30"
+                  />
+                  <button
+                    type="submit"
+                    aria-label="搜尋"
+                    class="absolute right-1.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-espresso text-white grid place-items-center hover:scale-105 transition"
+                  >
+                    <i class="fa-solid fa-magnifying-glass text-[13px]"></i>
+                  </button>
+                </form>
+              </div>
+              <div class="reveal">
+                <h4
+                  class="font-serif font-bold text-xl text-ink mb-5 pb-3.5 border-b border-taupe/15"
+                >
+                  文章分類
+                </h4>
+                <div class="flex flex-col gap-1">
+                  <a
+                    href="articles.html"
+                    class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm bg-cream text-espresso"
+                    >全部文章
+                    <span class="text-xs bg-white rounded-full px-2.5 py-0.5"
+                      >10</span
+                    ></a
+                  >
+                  <a
+                    href="articles.html"
+                    class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition"
+                    >CREATIVE
+                    <span class="text-xs bg-cream rounded-full px-2.5 py-0.5"
+                      >2</span
+                    ></a
+                  >
+                  <a
+                    href="articles.html"
+                    class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition"
+                    >DESIGN
+                    <span class="text-xs bg-cream rounded-full px-2.5 py-0.5"
+                      >2</span
+                    ></a
+                  >
+                  <a
+                    href="articles.html"
+                    class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition"
+                    >INSPIRATION
+                    <span class="text-xs bg-cream rounded-full px-2.5 py-0.5"
+                      >2</span
+                    ></a
+                  >
+                  <a
+                    href="articles.html"
+                    class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition"
+                    >BUSINESS
+                    <span class="text-xs bg-cream rounded-full px-2.5 py-0.5"
+                      >3</span
+                    ></a
+                  >
+                  <a
+                    href="articles.html"
+                    class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition"
+                    >TECH
+                    <span class="text-xs bg-cream rounded-full px-2.5 py-0.5"
+                      >1</span
+                    ></a
+                  >
+                </div>
+              </div>
+              <div class="reveal">
+                <h4
+                  class="font-serif font-bold text-xl text-ink mb-5 pb-3.5 border-b border-taupe/15"
+                >
+                  熱門標籤
+                </h4>
+                <div class="flex flex-wrap gap-2.5">
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#創作</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#個人品牌</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#質感生活</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#攝影</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#旅行</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#創業</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#日本</a
+                  >
+                  <a
+                    href="./tag.html"
+                    class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition"
+                    >#山系教養</a
+                  >
+                </div>
+              </div>
+              <div class="reveal">
+                <h4
+                  class="font-serif font-bold text-xl text-ink mb-5 pb-3.5 border-b border-taupe/15"
+                >
+                  精選文章
+                </h4>
+                <div id="side-featured" class="flex flex-col gap-[18px]">
+                  <a
+                  class="flex gap-3.5 items-center group"
+                  href="article.html"
+                  ><div class="flex-none w-16 h-16 rounded-xl overflow-hidden">
+                    <img
+                      src="./public/img/video-9.png"
+                      alt=""
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="font-sans text-[11px] opacity-70 tracking-[0.12em] text-taupe"
+                    >
+                      CREATIVE
+                    </div>
+                    <div
+                      class="font-serif font-bold text-[15px] text-ink leading-snug mt-0.5 group-hover:text-espresso"
+                    >
+                      如何開始你的第一個 YouTube 頻道？從設備到心態
+                    </div>
+                  </div></a
+                ><a
+                  class="flex gap-3.5 items-center group"
+                  href="article.html"
+                  ><div class="flex-none w-16 h-16 rounded-xl overflow-hidden">
+                    <img
+                      src="./public/img/about-2.jpg"
+                      alt=""
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="font-sans text-[11px] opacity-70 tracking-[0.12em] text-taupe"
+                    >
+                      DESIGN
+                    </div>
+                    <div
+                      class="font-serif text-[15px] font-bold text-ink leading-snug mt-0.5 group-hover:text-espresso"
+                    >
+                      日系配色美學：如何在網頁設計中運用淺色調
+                    </div>
+                  </div></a
+                ><a
+                  class="flex gap-3.5 items-center group"
+                  href="article.html"
+                  ><div class="flex-none w-16 h-16 rounded-xl overflow-hidden">
+                    <img
+                      src="./public/img/video-7.png"
+                      alt=""
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="font-sans text-[11px] opacity-70 tracking-[0.12em] text-taupe"
+                    >
+                      INSPIRATION
+                    </div>
+                    <div
+                      class="font-serif text-[15px] font-bold text-ink leading-snug mt-0.5 group-hover:text-espresso"
+                    >
+                      2026 年必看的 5 部創意短片
+                    </div>
+                  </div></a
+                ><a
+                  class="flex gap-3.5 items-center group"
+                  href="article.html"
+                  ><div class="flex-none w-16 h-16 rounded-xl overflow-hidden">
+                    <img
+                      src="./public/img/about-1.jpg"
+                      alt=""
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="font-sans text-[11px] opacity-70 tracking-[0.12em] text-taupe"
+                    >
+                      BUSINESS
+                    </div>
+                    <div
+                      class="font-serif text-[15px] font-bold text-ink leading-snug mt-0.5 group-hover:text-espresso"
+                    >
+                      個人品牌經營：從 0 到 1 的實戰經驗
+                    </div>
+                  </div></a
+                ><a
+                  class="flex gap-3.5 items-center group"
+                  href="article.html"
+                  ><div class="flex-none w-16 h-16 rounded-xl overflow-hidden">
+                    <img
+                      src="./public/img/video-6.png"
+                      alt=""
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="font-sans text-[11px] opacity-70 tracking-[0.12em] text-taupe"
+                    >
+                      CREATIVE
+                    </div>
+                    <div
+                      class="font-serif text-[15px] font-bold text-ink leading-snug mt-0.5 group-hover:text-espresso"
+                    >
+                      我的攝影器材清單：輕便與畫質的平衡
+                    </div>
+                  </div></a
+                >
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWSLETTER -->
+      <section class="py-24 bg-cream relative overflow-hidden text-center">
+        <div class="max-w-[1200px] mx-auto px-7 relative reveal">
+          <h2 class="t-h2 text-ink mb-4">訂閱電子報</h2>
+          <p class="text-inksoft max-w-[420px] mx-auto mb-10">
+            不錯過任何一次更新，讓靈感直接送達你的信箱。每週一次，關於創作與生活的精選內容。
+          </p>
+          <form
+            data-fake
+            data-ok="已訂閱，請查收你的信箱 ✓"
+            class="flex gap-4 max-w-[480px] mx-auto flex-col sm:flex-row"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Your Email Address"
+              class="flex-1 px-7 py-4 rounded-full bg-white outline-none focus:ring-2 focus:ring-taupe/30"
+            />
+            <button
+              class="px-9 py-4 rounded-full bg-espresso text-white font-bold whitespace-nowrap hover:scale-105 hover:shadow-cta transition"
+            >
+              立即訂閱
+            </button>
           </form>
         </div>
-        <div class="reveal">
-          <h4 class="font-serif text-xl text-ink font-medium mb-5 pb-3.5 border-b border-taupe/15">文章分類</h4>
-          <div class="flex flex-col gap-1">
-            <a href="articles.html" class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition">全部文章 <span class="text-xs bg-cream rounded-full px-2.5 py-0.5">10</span></a>
-            <a href="tag.html?cat=CREATIVE" class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition">CREATIVE <span class="text-xs bg-cream rounded-full px-2.5 py-0.5">2</span></a>
-            <a href="tag.html?cat=DESIGN" class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition">DESIGN <span class="text-xs bg-cream rounded-full px-2.5 py-0.5">2</span></a>
-            <a href="tag.html?cat=INSPIRATION" class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition">INSPIRATION <span class="text-xs bg-cream rounded-full px-2.5 py-0.5">2</span></a>
-            <a href="tag.html?cat=BUSINESS" class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition">BUSINESS <span class="text-xs bg-cream rounded-full px-2.5 py-0.5">3</span></a>
-            <a href="tag.html?cat=TECH" class="flex justify-between items-center px-4 py-2.5 rounded-full text-sm text-inksoft hover:bg-cream hover:text-espresso transition">TECH <span class="text-xs bg-cream rounded-full px-2.5 py-0.5">1</span></a>
-          </div>
-        </div>
-        <div class="reveal">
-          <h4 class="font-serif text-xl text-ink font-medium mb-5 pb-3.5 border-b border-taupe/15">熱門標籤</h4>
-          <div class="flex flex-wrap gap-2.5">
-            <a href="tag.html?tag=%E5%89%B5%E4%BD%9C" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#創作</a>
-            <a href="tag.html?tag=%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#個人品牌</a>
-            <a href="tag.html?tag=%E8%B3%AA%E6%84%9F%E7%94%9F%E6%B4%BB" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#質感生活</a>
-            <a href="tag.html?tag=%E6%94%9D%E5%BD%B1" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#攝影</a>
-            <a href="tag.html?tag=%E6%97%85%E8%A1%8C" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#旅行</a>
-            <a href="tag.html?tag=%E5%89%B5%E6%A5%AD" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#創業</a>
-            <a href="tag.html?tag=%E6%97%A5%E6%9C%AC" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#日本</a>
-            <a href="tag.html?tag=%E5%B1%B1%E7%B3%BB%E6%95%99%E9%A4%8A" class="text-[13px] text-taupe bg-cream px-4 py-1.5 rounded-full hover:bg-greige transition">#山系教養</a>
-          </div>
-        </div>
-        <div class="reveal">
-          <h4 class="font-serif text-xl text-ink font-medium mb-5 pb-3.5 border-b border-taupe/15">精選文章</h4>
-          <div id="side-featured" class="flex flex-col gap-[18px]"></div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</div>
+      </section>
+    </main>
 
-<!-- NEWSLETTER -->
-<section class="py-24 bg-cream relative overflow-hidden text-center">
-  <div class="max-w-[1200px] mx-auto px-7 relative reveal">
-    <h2 class="t-h2 text-ink mb-4">訂閱電子報</h2>
-    <p class="text-inksoft max-w-[420px] mx-auto mb-10">不錯過任何一次更新，讓靈感直接送達你的信箱。每週一次，關於創作與生活的精選內容。</p>
-    <form data-fake data-ok="已訂閱，請查收你的信箱 ✓" class="flex gap-4 max-w-[480px] mx-auto flex-col sm:flex-row">
-      <input type="email" required placeholder="Your Email Address" class="flex-1 px-7 py-4 rounded-full bg-white outline-none focus:ring-2 focus:ring-taupe/30">
-      <button class="px-9 py-4 rounded-full bg-espresso text-white font-bold whitespace-nowrap hover:scale-105 hover:shadow-cta transition">立即訂閱</button>
-    </form>
-  </div>
-</section>
+    <div id="footer"></div>
 
-<!-- FOOTER -->
-<footer class="pt-24 pb-12 text-center">
-  <div class="max-w-[1200px] mx-auto px-7">
-    <div class="font-script text-4xl text-taupe mb-8">Nikki Life</div>
-    <div class="flex justify-center gap-8 mb-12">
-      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-threads"></i></a>
-    </div>
-    <div class="border-t border-cream pt-8">
-      <p class="text-sm text-inksoft">© 2026 Nikki Life. All rights reserved.</p>
-      <p class="text-[11px] text-inksoft/60 mt-2 uppercase tracking-[0.18em]">Designed by Jerry Lee</p>
-    </div>
-  </div>
-</footer>
-
-<script src="data.js"></script>
-<script src="app.js"></script>
-</body>
+    <script src="./public/js/app.js"></script>
+  </body>
 </html>

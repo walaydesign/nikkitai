@@ -1,116 +1,275 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>文章 — Nikki Life</title>
-<link rel="stylesheet" href="blog.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="tw-config.js"></script>
-</head>
-<body class="bg-paper font-sans text-inksoft overflow-x-hidden" data-page="article">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikki Life | 探索生活中的無限可能</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./public/css/style.css" />
 
-<!-- NAV -->
-<nav class="fixed top-0 inset-x-0 z-50 glass border-b border-taupe/15">
-  <div class="max-w-[1200px] mx-auto px-7 py-4 flex justify-between items-center">
-    <a href="index.html" class="font-script text-3xl text-taupe">Nikki Life</a>
-    <div class="hidden md:flex gap-1 items-center">
-      <a href="about.html" data-nav="about" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">關於我</a>
-      <a href="articles.html" data-nav="articles" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">精選文章</a>
-      <a href="index.html#works" data-nav="works" class="text-sm text-taupe px-5 py-2.5 rounded-full hover:bg-cream transition">影音創作</a>
-      <a href="index.html#contact" class="text-sm text-white bg-taupe px-6 py-2.5 rounded-full hover:opacity-90 transition">聯絡合作</a>
-    </div>
-    <button id="burger" class="md:hidden text-taupe text-xl" aria-label="選單"><i class="fa-solid fa-bars"></i></button>
-  </div>
-  <div id="mobile-menu" class="hidden md:hidden glass border-t border-taupe/10 px-7 py-3 flex-col gap-1">
-    <a href="about.html" class="block text-sm text-taupe py-2">關於我</a>
-    <a href="articles.html" class="block text-sm text-taupe py-2">精選文章</a>
-    <a href="index.html#works" class="block text-sm text-taupe py-2">影音創作</a>
-    <a href="index.html#contact" class="block text-sm text-taupe py-2">聯絡合作</a>
-  </div>
-</nav>
+    <script src="./public/js/tw-config.js"></script>
+  </head>
+  <body
+    class="bg-paper font-sans text-inksoft overflow-x-hidden"
+    data-page="article"
+  >
+    <div id="header"></div>
 
-<!-- ARTICLE HERO -->
-<header class="pt-[150px]">
-  <div class="max-w-[820px] mx-auto px-7 text-center reveal">
-    <div class="font-sans text-[13px] text-inksoft tracking-wide mb-4.5">
-      <a href="index.html" class="hover:text-taupe">首頁</a><span class="opacity-50 mx-2">/</span>
-      <a href="articles.html" class="hover:text-taupe">精選文章</a><span class="opacity-50 mx-2">/</span><span id="a-crumb-cat"></span>
-    </div>
-    <div class="flex items-center justify-center gap-3.5 mb-4">
-      <span id="a-cat" class="font-sans font-bold text-xs tracking-[0.16em] text-white bg-taupe px-4 py-1.5 rounded-full"></span>
-      <span id="a-date" class="font-sans text-sm text-inksoft"></span>
-    </div>
-    <h1 id="a-title" class="font-serif text-[clamp(2rem,4.4vw,3.25rem)] text-ink leading-[1.25] mb-4.5"></h1>
-    <div class="inline-flex items-center gap-3 mt-1.5">
-      <img src="../../assets/about-2.jpg" alt="Nikki" class="w-10 h-10 rounded-full object-cover">
-      <span class="font-sans text-sm text-inksoft">by Nikki Tai · 閱讀時間約 6 分鐘</span>
-    </div>
-  </div>
-  <div class="max-w-[1040px] mx-auto px-7 mt-12">
-    <div class="w-full aspect-video rounded-[30px] overflow-hidden shadow-media reveal"><img id="a-img" src="" alt="" class="w-full h-full object-cover"></div>
-  </div>
-</header>
+    <main class="pt-[72px]">
+      <!-- ARTICLE HERO -->
+      <div class="pt-12">
+        <div class="max-w-[820px] mx-auto px-7 text-center reveal">
+          <div class="font-sans text-[13px] text-inksoft tracking-wide mb-4">
+            <a href="index.html" class="hover:text-taupe">首頁</a
+            ><span class="opacity-50 mx-2">/</span>
+            <a href="articles.html" class="hover:text-taupe">精選文章</a
+            ><span class="opacity-50 mx-2">/</span
+            ><span id="a-crumb-cat">CREATIVE</span>
+          </div>
+          <div class="flex items-center justify-center gap-3.5 mb-4">
+            <span
+              id="a-cat"
+              class="font-sans font-bold text-xs tracking-[0.16em] text-white bg-taupe px-4 py-1.5 rounded-full"
+              >CREATIVE</span
+            >
+            <span id="a-date" class="font-sans text-sm text-inksoft"
+              ><i class="fa-regular fa-calendar mr-1.5"></i>2026.05.28</span
+            >
+          </div>
+          <h1
+            id="a-title"
+            class="font-serif font-bold text-[clamp(2rem,4.4vw,3.25rem)] text-ink leading-[1.25] mb-2"
+          >
+            如何開始你的第一個 YouTube 頻道？從設備到心態
+          </h1>
+          <div class="inline-flex items-center gap-3 mt-1.5">
+            <img
+              src="./public/img/about-2.jpg"
+              alt="Nikki"
+              class="w-10 h-10 rounded-full object-cover"
+            />
+            <span class="font-sans text-sm text-inksoft"
+              >by Nikki Tai · 閱讀時間約 6 分鐘</span
+            >
+          </div>
+        </div>
+        <div class="max-w-[1040px] mx-auto px-7 mt-12">
+          <div
+            class="w-full aspect-video rounded-[30px] overflow-hidden shadow-media reveal"
+          >
+            <img
+              id="a-img"
+              src="./public/img/video-9.png"
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
 
-<!-- PROSE -->
-<article id="a-prose" class="prose max-w-[720px] mx-auto px-7 pt-16 reveal"></article>
+      <div class="relative pb-32 lg:pb-60">
+      <!-- PROSE -->
+      <article
+        id="a-prose"
+        class="prose max-w-[720px] mx-auto px-7 pt-8 lg:pt-16 reveal"
+      >
+        <p class="lead">
+          兩年前，我對著鏡頭錄下第一支影片時，手是抖的。如今回頭看，那支影片粗糙得可愛，卻是一切的起點。如果你也正站在「想開始」與「還沒準備好」之間，這篇文章是寫給你的。
+        </p>
+        <h2>一、設備：從你手邊已有的開始</h2>
+        <p>
+          最常被問到的問題是「我需要買什麼相機？」我的答案永遠是：先用你手機。觀眾在意的從來不是
+          4K
+          或淺景深，而是你有沒有把一件事說清楚、說得有溫度。把預算留到你確定自己會持續創作之後，再投資也不遲。
+        </p>
+        <p>
+          當你準備升級時，我的順序是：收音 > 燈光 > 鏡頭 >
+          機身。一支好的指向性麥克風，對觀感的提升遠大於換一台更貴的相機。
+        </p>
+        <blockquote>觀眾原諒模糊的畫面，卻不會原諒聽不清楚的聲音。</blockquote>
+        <h2>二、心態：把「完美」留到第十支影片</h2>
+        <p>
+          創作者最大的敵人不是技術，是那個要求一次到位的自己。我給自己訂的規則很簡單——前十支影片，只求「發布」，不求「完美」。數量會帶來手感，手感會帶來品味，品味才會帶來真正的好作品。
+        </p>
+        <p>
+          允許自己拍得不夠好，是持續下去的前提。當你回頭看見自己的進步，那種踏實感，會比任何一次爆紅都更滋養你。
+        </p>
+        <h2>三、節奏：找到能長跑的頻率</h2>
+        <p>
+          與其每天逼自己更新然後三週後倦怠，不如先承諾一個你「就算很忙也做得到」的頻率。對我來說是每週一支。穩定，比熱血更重要。創作是一場馬拉松，不是百米衝刺。
+        </p>
+        <p>
+          最後想對你說：開始，永遠是最難也最重要的一步。當你按下那個紅色錄影鍵，你就已經超越了昨天那個只是在想的自己。我在這條路上等你。
+        </p>
+      </article>
 
-<!-- TAGS -->
-<div id="a-tags" class="max-w-[720px] mx-auto px-7 mt-12 flex gap-3 flex-wrap items-center reveal"></div>
+      <!-- TAGS -->
+      <div
+        id="a-tags"
+        class="max-w-[720px] mx-auto px-7 mt-12 flex gap-3 flex-wrap items-center reveal"
+      >
+        <span class="font-sans text-[13px] text-inksoft">標籤</span
+        ><a
+          class="font-sans text-[13px] text-taupe bg-cream px-[18px] py-1.5 rounded-full hover:bg-greige transition"
+          href="./tag.html"
+          >#創作</a
+        ><a
+          class="font-sans text-[13px] text-taupe bg-cream px-[18px] py-1.5 rounded-full hover:bg-greige transition"
+          href="./tag.html"
+          >#個人品牌</a
+        ><a
+          class="font-sans text-[13px] text-taupe bg-cream px-[18px] py-1.5 rounded-full hover:bg-greige transition"
+          href="./tag.html"
+          >#YouTube</a
+        >
+      </div>
 
-<!-- PREV / NEXT -->
-<nav class="max-w-[1040px] mx-auto px-7 mt-20 grid sm:grid-cols-2 gap-6">
-  <a id="a-prev" href="#" class="reveal flex flex-col gap-1.5 px-8 py-7 rounded-[30px] bg-cream hover:bg-greige hover:-translate-y-1 transition-all duration-300">
-    <span class="font-sans text-xs tracking-[0.14em] text-taupe uppercase"><i class="fa-solid fa-arrow-left mr-2"></i>上一篇</span>
-    <span class="pn-ttl font-serif text-lg text-ink leading-snug"></span>
-  </a>
-  <a id="a-next" href="#" class="reveal flex flex-col gap-1.5 items-end text-right px-8 py-7 rounded-[30px] bg-cream hover:bg-greige hover:-translate-y-1 transition-all duration-300">
-    <span class="font-sans text-xs tracking-[0.14em] text-taupe uppercase">下一篇<i class="fa-solid fa-arrow-right ml-2"></i></span>
-    <span class="pn-ttl font-serif text-lg text-ink leading-snug"></span>
-  </a>
-</nav>
+      <!-- PREV / NEXT -->
+      <nav class="max-w-[1040px] mx-auto px-7 mt-20 grid sm:grid-cols-2 gap-6">
+        <a
+          id="a-prev"
+          href="./article.html"
+          class="reveal flex flex-col gap-1.5 px-8 py-7 rounded-[30px] bg-cream hover:bg-greige hover:-translate-y-1 transition-all duration-300"
+        >
+          <span class="font-sans text-xs tracking-[0.14em] text-taupe uppercase opacity-60"
+            ><i class="fa-solid fa-arrow-left mr-1"></i>上一篇</span
+          >
+          <span class="pn-ttl font-serif text-lg text-ink leading-snug mt-1 font-bold"
+            >Ikigai 框架：找到創業的初心與律動</span
+          >
+        </a>
+        <a
+          id="a-next"
+          href="./article.html"
+          class="reveal flex flex-col gap-1.5 items-end text-right px-8 py-7 rounded-[30px] bg-cream hover:bg-greige hover:-translate-y-1 transition-all duration-300"
+        >
+        <span class="font-sans text-xs tracking-[0.14em] text-taupe uppercase opacity-60"
+            >下一篇<i class="fa-solid fa-arrow-right ml-1"></i
+          ></span
+          >
+          <span class="pn-ttl font-serif text-lg text-ink leading-snug mt-1 font-bold"
+            >日系配色美學：如何在網頁設計中運用淺色調</span
+          >
+        </a>
+      </nav>
+      <img class="absolute w-full left-0 bottom-0" src="./public/img/mask-1-cream.svg" alt="">
 
-<!-- RELATED -->
-<section class="py-24 bg-cream mt-24">
-  <div class="max-w-[1120px] mx-auto px-7">
-    <div class="text-center mb-14 reveal">
-      <span class="t-script text-taupe">You may also like</span>
-      <h2 class="t-h1 text-ink mt-1">相關文章</h2>
-    </div>
-    <div id="a-related" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
-  </div>
-</section>
+      </div>
 
-<!-- NEWSLETTER -->
-<section class="py-24 relative overflow-hidden text-center">
-  <div class="max-w-[1200px] mx-auto px-7 relative reveal">
-    <h2 class="t-h2 text-ink mb-4">訂閱電子報</h2>
-    <p class="text-inksoft max-w-[420px] mx-auto mb-10">不錯過任何一次更新，讓靈感直接送達你的信箱。每週一次，關於創作與生活的精選內容。</p>
-    <form data-fake data-ok="已訂閱，請查收你的信箱 ✓" class="flex gap-4 max-w-[480px] mx-auto flex-col sm:flex-row">
-      <input type="email" required placeholder="Your Email Address" class="flex-1 px-7 py-4 rounded-full bg-cream outline-none focus:ring-2 focus:ring-taupe/30">
-      <button class="px-9 py-4 rounded-full bg-espresso text-white font-bold whitespace-nowrap hover:scale-105 hover:shadow-cta transition">立即訂閱</button>
-    </form>
-  </div>
-</section>
+      <!-- RELATED -->
+      <section class="py-24 bg-cream border-b">
+        <div class="max-w-[1120px] mx-auto px-7">
 
-<!-- FOOTER -->
-<footer class="pt-16 pb-12 text-center">
-  <div class="max-w-[1200px] mx-auto px-7">
-    <div class="font-script text-4xl text-taupe mb-8">Nikki Life</div>
-    <div class="flex justify-center gap-8 mb-12">
-      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" class="w-12 h-12 rounded-full bg-white shadow-soft grid place-items-center text-taupe text-xl hover:bg-taupe hover:text-white transition"><i class="fa-brands fa-threads"></i></a>
-    </div>
-    <div class="border-t border-cream pt-8">
-      <p class="text-sm text-inksoft">© 2026 Nikki Life. All rights reserved.</p>
-      <p class="text-[11px] text-inksoft/60 mt-2 uppercase tracking-[0.18em]">Designed by Jerry Lee</p>
-    </div>
-  </div>
-</footer>
+          <div class="text-center mb-12 reveal">
+            <span class="t-script text-inksoft opacity-40 text-3xl"
+              >You may also like</span
+            >
+            <h2
+              class="font-serif font-bold text-4xl lg:text-5xl text-ink mt-2 mb-4 relative"
+            >
+              相關文章
+            </h2>
+          </div>
+          <div id="a-related" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-greige blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >DESIGN</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    日系配色美學：如何在網頁設計中運用淺色調
+                  </h3>
+                </a>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
-</body>
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >INSPIRATION</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    2026 年必看的 5 部創意短片
+                  </h3>
+                </a>
+
+                <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+                  <div
+                    class="w-full h-48 bg-porcelain blob-shape overflow-hidden mb-1 lg:mb-7"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                      alt="Article"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <span
+                    class="text-taupe font-bold text-xs tracking-widest opacity-50"
+                    >BUSINESS</span
+                  >
+                  <h3 class="font-serif text-2xl text-ink my-2 font-bold">
+                    個人品牌經營：從 0 到 1 的實戰經驗
+                  </h3>
+                </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER -->
+      <section class="py-24 bg-cream relative overflow-hidden text-center">
+        <div class="max-w-[1200px] mx-auto px-7 relative reveal">
+          <h2 class="t-h2 text-ink mb-4">訂閱電子報</h2>
+          <p class="text-inksoft max-w-[420px] mx-auto mb-10">
+            不錯過任何一次更新，讓靈感直接送達你的信箱。每週一次，關於創作與生活的精選內容。
+          </p>
+          <form
+            data-fake
+            data-ok="已訂閱，請查收你的信箱 ✓"
+            class="flex gap-4 max-w-[480px] mx-auto flex-col sm:flex-row"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Your Email Address"
+              class="flex-1 px-7 py-4 rounded-full bg-white outline-none focus:ring-2 focus:ring-taupe/30"
+            />
+            <button
+              class="px-9 py-4 rounded-full bg-espresso text-white font-bold whitespace-nowrap hover:scale-105 hover:shadow-cta transition"
+            >
+              立即訂閱
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="./public/js/app.js"></script>
+  </body>
 </html>

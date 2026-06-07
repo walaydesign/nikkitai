@@ -59,6 +59,10 @@ a {
           transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.header-nav a.active {
+  font-weight: 700;
+}
+
 @media screen and (max-width: 767px) {
   .header-nav__list {
     position: fixed;
@@ -185,27 +189,27 @@ a {
 
 /* fluid type helpers (keep Tailwind markup tidy) */
 .t-script {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
   font-size: clamp(2rem, 3.4vw, 2.75rem);
   line-height: 1.2;
 }
 
 .t-display {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(2.75rem, 6vw, 4.5rem);
   line-height: 1.1;
   font-weight: 400;
 }
 
 .t-h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(2.25rem, 4vw, 3rem);
   line-height: 1.2;
   font-weight: 400;
 }
 
 .t-h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   line-height: 1.2;
   font-weight: 400;
@@ -218,8 +222,9 @@ a {
           animation: morph 8s ease-in-out infinite;
 }
 
-@-webkit-keyframes morph {
-  0%, 100% {
+@-webkit-keyframes morphing {
+  0%,
+  100% {
     border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
   }
   50% {
@@ -227,8 +232,9 @@ a {
   }
 }
 
-@keyframes morph {
-  0%, 100% {
+@keyframes morphing {
+  0%,
+  100% {
     border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
   }
   50% {
@@ -246,7 +252,8 @@ a {
 
 /* floating ambient orbs */
 @-webkit-keyframes floating {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -256,7 +263,8 @@ a {
   }
 }
 @keyframes floating {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -357,18 +365,18 @@ a {
 }
 
 .prose .lead {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-size: 22px;
   line-height: 1.7;
-  color: #312C29;
+  color: #312c29;
   margin: 0 0 36px;
 }
 
 .prose h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 28px;
-  color: #312C29;
+  color: #312c29;
   font-weight: 500;
   margin: 44px 0 18px;
 }
@@ -377,7 +385,7 @@ a {
   margin: 36px 0;
   padding: 8px 0 8px 32px;
   border-left: 3px solid rgba(119, 107, 100, 0.4);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-size: 24px;
   line-height: 1.5;

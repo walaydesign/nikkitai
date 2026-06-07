@@ -17,44 +17,8 @@
 
     <script src="./public/js/tw-config.js"></script>
   </head>
-  <body class="custom-scrollbar">
-    <header class="fixed top-0 w-full z-50 glass-nav border-b border-cream/30">
-      <div
-        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <a href="#" class="font-script text-3xl text-taupe font-bold"
-          >Nikki Life</a
-        >
-
-        <nav class="block md:flex space-x-2 header-nav__list">
-          <a
-            href="#about"
-            class="pill-btn px-6 py-2 text-taupe hover:bg-cream transition-colors"
-            >關於我</a
-          >
-          <a
-            href="#articles"
-            class="pill-btn px-6 py-2 text-taupe hover:bg-cream transition-colors"
-            >精選文章</a
-          >
-          <a
-            href="#works"
-            class="pill-btn px-6 py-2 text-taupe hover:bg-cream transition-colors"
-            >影音創作</a
-          >
-          <a
-            href="#contact"
-            class="pill-btn px-6 py-2 bg-taupe text-white hover:bg-taupe transition-colors"
-            >聯絡合作</a
-          >
-        </nav>
-        <button class="header-menu block md:hidden">
-        <div class="bar bar-top"></div>
-        <div class="bar bar-middle"></div>
-        <div class="bar bar-bottom"></div>
-      </button>
-      </div>
-    </header>
+  <body class="bg-paper custom-scrollbar">
+    <div id="header"></div>
 
     <section
       class="relative min-h-screen flex items-center pt-32 lg:pt-20 pb-40 overflow-hidden"
@@ -89,12 +53,13 @@
           </p>
           <div class="flex flex-wrap gap-4">
             <a
-              href="#works"
+              href="https://www.youtube.com/@nikkitai0212/videos"
+              target="_blank"
               class="pill-btn bg-espresso text-white px-10 py-4 font-medium"
               >觀看影音</a
             >
             <a
-              href="#about"
+              href="#latest"
               class="pill-btn border-2 border-espresso text-espresso px-10 py-4 font-medium hover:bg-espresso hover:text-white"
               >了解更多</a
             >
@@ -123,12 +88,19 @@
       ></div>
     </section>
 
-    <section class="relative pt-0 pb-28 lg:pt-24 lg:pb-48 bg-cream overflow-visible">
+    <section
+      id="latest"
+      class="relative pt-0 pb-28 lg:pt-24 lg:pb-48 bg-cream overflow-visible"
+    >
       <div class="max-w-5xl mx-auto px-6 text-center reveal">
-        <h2 class="font-script text-4xl text-taupe mb-2">Latest Video</h2>
-        <p class="font-serif text-2xl text-ink mb-10">
-          美食探店：炸牛元村 林口店
-        </p>
+        <div class="text-center mb-12 reveal">
+          <span class="t-script text-inksoft opacity-40 text-3xl"
+            >Latest Video</span
+          >
+          <h2 class="font-serif font-bold text-4xl text-ink mt-2 mb-4 relative">
+            美食探店：炸牛元村 林口店
+          </h2>
+        </div>
 
         <a
           href="https://www.youtube.com/shorts/-9DpDe6HN3A"
@@ -192,12 +164,16 @@
           </div>
 
           <div class="reveal" style="transition-delay: 200ms">
-            <h2 class="font-serif text-4xl text-ink mb-8 relative inline-block">
-              關於這個網站
-              <div
-                class="absolute -bottom-2 left-0 w-1/2 h-1 bg-taupe/30 rounded-full"
-              ></div>
-            </h2>
+            <div class="mb-12 reveal">
+              <h2
+                class="font-serif font-bold text-4xl text-ink mt-2 mb-4 relative"
+              >
+                關於這個網站
+                <div
+                  class="absolute -bottom-4 left-0 w-[120px] h-1 bg-taupe/30 rounded-full"
+                ></div>
+              </h2>
+            </div>
             <div class="space-y-6 text-inksoft leading-relaxed text-base">
               <p>
                 嗨，我是 Nikki，一名定居北部的連續創業家與商業導師。<br />
@@ -218,7 +194,8 @@
               <div
                 class="p-8 border-2 border-taupe/20 rounded-[40px_10px_40px_10px] text-center bg-white/50"
               >
-                <span class="block text-5xl font-serif text-espresso font-bold mb-1"
+                <span
+                  class="block text-5xl font-serif text-espresso font-bold mb-1"
                   >100+</span
                 >
                 <span class="text-xs text-inksoft">原創影片</span>
@@ -226,17 +203,18 @@
               <div
                 class="p-8 border-2 border-taupe/20 rounded-[10px_40px_10px_40px] text-center bg-white/50"
               >
-                <span class="block text-5xl font-serif text-espresso font-bold mb-1"
+                <span
+                  class="block text-5xl font-serif text-espresso font-bold mb-1"
                   >50K+</span
                 >
                 <span class="text-xs text-inksoft">社群追蹤</span>
               </div>
             </div>
             <a
-            href="#"
-            class="pill-btn mt-6 inline-block bg-espresso text-white px-12 py-4"
-            >查看更多</a
-          >
+              href="./about.html"
+              class="pill-btn mt-6 inline-block bg-espresso text-white px-12 py-4"
+              >查看更多</a
+            >
           </div>
         </div>
       </div>
@@ -244,13 +222,20 @@
 
     <section id="articles" class="py-24 bg-cream">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12 lg:mb-20 reveal">
-          <h2 class="font-serif text-4xl text-ink mb-4">精選文章</h2>
+        <div class="mb-12 reveal text-center">
+          <h2 class="font-serif font-bold text-4xl text-ink mt-2 mb-4 relative">
+            精選文章
+          </h2>
           <p class="text-inksoft">深入淺出的生活提案與技術分享</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
-          <a href="" class="article-card p-0 lg:p-6 lg:-mt-8 reveal lg:col-span-2">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8"
+        >
+          <a
+            href="./article.html"
+            class="article-card p-0 lg:p-6 lg:-mt-8 reveal lg:col-span-2"
+          >
             <div class="w-full h-64 bg-cream blob-shape overflow-hidden mb-1">
               <img
                 src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?w=600&h=400&fit=crop"
@@ -258,10 +243,11 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
+            <span
+              class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >CREATIVE</span
             >
-            <h3 class="font-serif text-2xl text-ink my-2">
+            <h3 class="font-serif text-2xl text-ink my-2 font-bold">
               如何開始你的第一個 YouTube 頻道？從設備到心態
             </h3>
             <p class="text-inksoft line-clamp-2">
@@ -269,39 +255,45 @@
             </p>
           </a>
 
-          <a href="" class="article-card p-0 lg:p-6 reveal">
-            <div class="w-full h-48 bg-greige blob-shape overflow-hidden mb-1 lg:mb-7">
+          <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+            <div
+              class="w-full h-48 bg-greige blob-shape overflow-hidden mb-1 lg:mb-7"
+            >
               <img
                 src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop"
                 alt="Article"
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
+            <span
+              class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >DESIGN</span
             >
-            <h3 class="font-serif text-2xl text-ink my-2">
+            <h3 class="font-serif text-2xl text-ink my-2 font-bold">
               日系配色美學：如何在網頁設計中運用淺色調
             </h3>
           </a>
 
-          <a href="" class="article-card p-0 lg:p-6 reveal">
-            <div class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7">
+          <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+            <div
+              class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+            >
               <img
                 src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop"
                 alt="Article"
                 class="w-full h-full object-cover"
               />
             </div>
-            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
+            <span
+              class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >INSPIRATION</span
             >
-            <h3 class="font-serif text-2xl text-ink my-2">
+            <h3 class="font-serif text-2xl text-ink my-2 font-bold">
               2026 年必看的 5 部創意短片
             </h3>
           </a>
 
-          <a href="" class="article-card p-0 lg:p-6 reveal">
+          <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
             <div
               class="w-full h-48 bg-porcelain blob-shape overflow-hidden mb-1 lg:mb-7"
             >
@@ -312,16 +304,19 @@
               />
             </div>
 
-            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
+            <span
+              class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >BUSINESS</span
             >
-            <h3 class="font-serif text-2xl text-ink my-2">
+            <h3 class="font-serif text-2xl text-ink my-2 font-bold">
               個人品牌經營：從 0 到 1 的實戰經驗
             </h3>
           </a>
 
-          <a href="" class="article-card p-0 lg:p-6 reveal">
-            <div class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7">
+          <a href="./article.html" class="article-card p-0 lg:p-6 reveal">
+            <div
+              class="w-full h-48 bg-mist blob-shape overflow-hidden mb-1 lg:mb-7"
+            >
               <img
                 src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop"
                 alt="Article"
@@ -329,11 +324,11 @@
               />
             </div>
 
-
-            <span class="text-taupe font-bold text-xs tracking-widest opacity-50"
+            <span
+              class="text-taupe font-bold text-xs tracking-widest opacity-50"
               >TECH</span
             >
-            <h3 class="font-serif text-2xl text-ink my-2">
+            <h3 class="font-serif text-2xl text-ink my-2 font-bold">
               我的攝影器材清單：輕便與畫質的平衡
             </h3>
           </a>
@@ -341,7 +336,7 @@
 
         <div class="mt-16 text-center reveal">
           <a
-            href="#"
+            href="./articles.html"
             class="pill-btn inline-block bg-espresso text-white px-12 py-4"
             >查看全部文章</a
           >
@@ -354,10 +349,12 @@
         <div
           class="flex flex-col md:flex-row justify-between items-end mb-16 reveal items-center"
         >
-          <div>
-            <h2 class="font-serif text-4xl text-ink mb-2">影音作品</h2>
-            <p class="text-inksoft">用動態影像說故事</p>
-          </div>
+          <div class="mb-12 reveal">
+          <h2 class="font-serif font-bold text-4xl text-ink mt-2 mb-4 relative">
+            影音作品
+          </h2>
+          <p class="text-inksoft">用動態影像說故事</p>
+        </div>
           <a
             href="https://www.youtube.com/@nikkitai0212/videos"
             target="_blank"
@@ -475,7 +472,7 @@
           </a>
         </div>
         <a
-          href="#"
+          href="https://www.youtube.com/@nikkitai0212/videos" target="_blank"
           class="text-espresso font-bold hover:underline mt-4 md:mt-0 mb-16 md:mb-0 flex justify-center md:hidden"
           >探索 YouTube 頻道 <i class="fa-solid fa-arrow-right ml-2"></i
         ></a>
@@ -573,7 +570,7 @@
     <section id="contact" class="py-32 relative">
       <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-16 reveal">
-          <h2 class="font-serif text-4xl text-ink mb-6">與我聯繫</h2>
+          <h2 class="font-serif text-4xl text-ink mb-6 font-bold">與我聯繫</h2>
           <p class="text-inksoft max-w-2xl mx-auto leading-relaxed">
             無論是品牌合作、媒體邀約，或是想對我的作品提出建議，都歡迎透過以下表單與我聯繫。我通常會在
             48 小時內回覆。
@@ -677,48 +674,8 @@
       </div>
     </section>
 
-    <footer class="pt-24 pb-12 relative overflow-hidden">
-      <div
-        class="absolute right-[-5%] bottom-[-10%] w-64 h-64 bg-greige/30 rounded-full blur-3xl"
-      ></div>
-      <div
-        class="absolute left-[-5%] top-[20%] w-48 h-48 bg-mist/20 rounded-full blur-2xl"
-      ></div>
+    <div id="footer"></div>
 
-      <div class="max-w-7xl mx-auto px-6 text-center reveal">
-        <div class="font-script text-4xl text-taupe mb-8">Nikki Life</div>
-
-        <div class="flex justify-center space-x-8 mb-12">
-          <a
-            href="#"
-            class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-taupe hover:bg-taupe hover:text-white transition-all"
-            ><i class="fa-brands fa-youtube text-xl"></i
-          ></a>
-          <a
-            href="#"
-            class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-taupe hover:bg-taupe hover:text-white transition-all"
-            ><i class="fa-brands fa-instagram text-xl"></i
-          ></a>
-          <a
-            href="#"
-            class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-taupe hover:bg-taupe hover:text-white transition-all"
-            ><i class="fa-brands fa-threads text-xl"></i
-          ></a>
-        </div>
-
-        <div class="border-t border-cream pt-8">
-          <p class="text-inksoft text-sm">
-            © 2026 Nikki Life. All rights reserved.
-          </p>
-          <p class="text-inksoft/50 text-xs mt-2 uppercase tracking-widest">
-            Designed by Jerry Lee
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <script src="./public/js/data.js"></script>
     <script src="./public/js/app.js"></script>
-
   </body>
 </html>
