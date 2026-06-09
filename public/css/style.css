@@ -438,4 +438,22 @@ a {
     padding-bottom: 80%;
   }
 }
+
+.gallery_item {
+  width: calc(25% - 24px);
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.gallery_item > img {
+  width: 100%;
+}
+
+@media screen and (max-width: 575px) {
+  .gallery_item {
+    width: calc(50% - 12px);
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
